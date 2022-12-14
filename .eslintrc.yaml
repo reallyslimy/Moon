@@ -28,7 +28,7 @@ rules:
       ignoreRegExpLiterals: true
 
   newline-before-return: off
-  quotes: [error, single]
+  quotes: [warn, single]
   object-curly-spacing: [error, never]
   no-use-before-define:
     - error
@@ -37,6 +37,6 @@ rules:
       classes: false
   template-curly-spacing: [error, never]
   curly: [error, all]
-  no-unused-vars: warning
+  no-unused-vars: 1
 
 
