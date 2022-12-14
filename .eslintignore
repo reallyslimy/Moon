@@ -1,0 +1,11 @@
+node_modules
+resources
+package.json
+turbo.json
+pnpm-lock.yaml
+pnpm-workspace.yaml
+/bot/neonpurple/.turbo
+/bot/neonpurple/.env
+/bot/neonpurple/node_modules
+/bot/neonpurple/package.json
+/bot/neonpurple/tsconfig.json

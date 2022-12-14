@@ -1,0 +1,20 @@
+{
+  "name": "neonpurple",
+  "version": "0.1.0",
+  "description": "Bot for discord",
+  "main": "index.js",
+  "scripts": {
+    "start": "",
+    "build": "tsc",
+    "lint": "eslint --fix --ext .ts,js ."
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "eris",
+    "multi"
+  ],
+  "author": "reallyslimy",
+  "license": "MIT",
+  "eslintIgnore": ["environment.d.ts"]
+}
