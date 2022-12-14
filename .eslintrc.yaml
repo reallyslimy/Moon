@@ -1,6 +1,6 @@
 ---
 root: true
-parser: "@typescript-eslint/parser"
+parser: '@typescript-eslint/parser'
 extends:
   - eslint:recommended
   - prettier
@@ -15,12 +15,11 @@ env:
 parserOptions:
   ecmaVersion: 2022
   sourceType: module
-  
+
 rules:
   max-len:
     - error
-    -
-      code: 100
+    - code: 100
       ignoreComments: true
       ignoreTrailingComments: true
       ignoreStrings: true
@@ -32,11 +31,8 @@ rules:
   object-curly-spacing: [error, never]
   no-use-before-define:
     - error
-    -
-      functions: false
+    - functions: false
       classes: false
   template-curly-spacing: [error, never]
   curly: [error, all]
   no-unused-vars: 1
-
-
