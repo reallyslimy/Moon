@@ -49,7 +49,6 @@ export class MoonHandlerClient extends Client {
     })
     report.step(1, 3, yellow('🤖 Registering commands...'))
     commandFiles.forEach(async (filePath) => {
-      console.log(filePath)
       const command: CommandType = await this.importFile(
         path.join(process.cwd(), `./commands/${filePath}`)
       )
