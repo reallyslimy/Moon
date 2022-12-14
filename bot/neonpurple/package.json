@@ -6,7 +6,8 @@
   "scripts": {
     "start": "",
     "build": "tsc",
-    "lint": "eslint --fix --ext .ts,js ."
+    "lint": "eslint --fix --ext .ts,js .",
+    "format": "prettier --write ."
   },
   "keywords": [
     "bot",
@@ -16,5 +17,7 @@
   ],
   "author": "reallyslimy",
   "license": "MIT",
-  "eslintIgnore": ["environment.d.ts"]
+  "eslintIgnore": [
+    "environment.d.ts"
+  ]
 }

@@ -11,7 +11,9 @@
 	"scripts": {
 		"start": "turbo start",
 		"build": "turbo build",
-		"lint": "turbo lint"
+		"lint": "turbo lint",
+		"format": "turbo format",
+		"prepare": "husky install"
 	},
 	"license": "MIT",
 	"author": {
