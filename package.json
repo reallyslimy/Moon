@@ -13,7 +13,7 @@
 		"typescript": "^4.9.4"
 	},
 	"scripts": {
-		"start": "turbo start",
+		"run:dev": "turbo run:dev",
 		"build": "turbo build",
 		"lint": "turbo lint",
 		"format": "turbo format",

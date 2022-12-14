@@ -2,11 +2,22 @@
   "name": "moonhandler",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "reallyslimy",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/node": "^18.11.15",
+    "eris": "^0.17.1",
+    "fast-glob": "^3.2.12",
+    "tslib": "^2.4.1",
+    "yurnalist": "^2.1.0"
+  },
+  "devDependencies": {
+    "kolorist": "^1.6.0"
+  }
 }

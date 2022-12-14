@@ -19,7 +19,7 @@ parserOptions:
 rules:
   max-len:
     - error
-    - code: 100
+    - code: 200
       ignoreComments: true
       ignoreTrailingComments: true
       ignoreStrings: true

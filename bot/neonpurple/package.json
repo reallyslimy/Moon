@@ -4,10 +4,11 @@
   "description": "Bot for discord",
   "main": "index.js",
   "scripts": {
-    "start": "",
+    "run:dev": "ts-node bot.ts",
     "build": "tsc",
     "lint": "eslint --fix --ext .ts,js .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "start:prod": ""
   },
   "keywords": [
     "bot",
@@ -19,5 +20,16 @@
   "license": "MIT",
   "eslintIgnore": [
     "environment.d.ts"
-  ]
+  ],
+  "dependencies": {
+    "@types/node": "^18.11.15",
+    "dotenv": "^16.0.3",
+    "eris": "^0.17.1",
+    "moonhandler": "workspace:*",
+    "ts-node": "^10.9.1",
+    "yurnalist": "^2.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
 }
