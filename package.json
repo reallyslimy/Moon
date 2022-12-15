@@ -17,7 +17,8 @@
 		"build": "turbo build",
 		"lint": "turbo lint",
 		"format": "turbo format",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"run:db": "turbo run:db"
 	},
 	"license": "MIT",
 	"author": {

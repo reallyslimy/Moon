@@ -13,6 +13,9 @@
         },
         "format": {
             "outputs": []
+        },
+        "run:db": {
+            "outputs": []
         }
     }
 }

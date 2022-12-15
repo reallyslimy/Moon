@@ -8,6 +8,7 @@
     "build": "tsc",
     "lint": "eslint --fix --ext .ts,js .",
     "format": "prettier --write .",
+    "run:db": "surreal start --log debug --user admin --pass admin memory",
     "start:prod": ""
   },
   "keywords": [
@@ -30,6 +31,8 @@
     "yurnalist": "^2.1.0"
   },
   "devDependencies": {
-    "typescript": "^4.9.4"
+    "mongoose": "^6.8.0",
+    "typescript": "^4.9.4",
+    "surrealdb.js": "^0.5.0"
   }
 }
