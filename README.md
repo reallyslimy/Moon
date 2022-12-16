@@ -1,8 +1,8 @@
-# Neon Purple
+# Moon
 
 A custom handcrafted bot by Slimy.
 
-## Neon Purple Features
+## Moon Features
 
 - Monorepo
 - Linting
