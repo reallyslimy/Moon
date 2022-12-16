@@ -1,4 +1,4 @@
 export enum dbEngine {
   surreal = 'surreal',
-  mongo = 'mongodb',
+  mongo = 'mongo',
 }

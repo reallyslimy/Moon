@@ -15,7 +15,11 @@
             "outputs": []
         },
         "run:db": {
-            "outputs": []
+            "outputs": [],
+            "cache": false
+        },
+        "docs": {
+
         }
     }
 }

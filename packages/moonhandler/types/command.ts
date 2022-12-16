@@ -1,8 +1,8 @@
 import {ApplicationCommandStructure, CommandInteraction} from 'eris'
-import {MoonHandlerClient} from '../structures/client'
+import {MoonClient} from '../structures/client'
 
 interface RunOptions {
-  client: MoonHandlerClient
+  client: MoonClient
   interaction: CommandInteraction
 }
 

@@ -18,7 +18,8 @@
 		"lint": "turbo lint",
 		"format": "turbo format",
 		"prepare": "husky install",
-		"run:db": "turbo run:db"
+		"run:db": "turbo run:db",
+		"run:panel": "turbo run:panel"
 	},
 	"license": "MIT",
 	"author": {
@@ -27,5 +28,5 @@
 	},
 	"eslintIgnore": [
 		"commitlint.config.js"
-	  ]
+	]
 }

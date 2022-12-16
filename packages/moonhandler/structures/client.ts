@@ -7,39 +7,61 @@ import {yellow, red, green} from 'kolorist'
 // Internal Imports
 import {CommandType} from '../types/command'
 import {MoonEvent} from './event'
+import {dbEngine} from '../utils/enums/dbEngine.enums'
+import {initSurrealDB} from '../db/surreal/dbconn'
+import {initMongoDB} from '../db/mongo/dbconn'
 
-export class MoonHandlerClient extends Client {
+export class MoonClient extends Client {
   botToken: string
   guildID: string
   commands: Map<string, CommandType> = new Map()
+  dbEngine?: string
+  mongoURI?: string
+  surrealUser?: string
+  surrealPass?: string
 
-  constructor(token: string, botOptions: Eris.ClientOptions, guildID) {
+  constructor(
+    token: string,
+    botOptions: Eris.ClientOptions,
+    guildID,
+    dbEngine?: string,
+    mongoURI?: string,
+    surrealUser?: string,
+    surrealPass?: string
+  ) {
     super(token, botOptions)
     this.botToken = token
     this.guildID = guildID
+    this.dbEngine = dbEngine
+    this.mongoURI = mongoURI
+    this.surrealPass = surrealPass
+    this.surrealUser = surrealUser
   }
 
   async importFile(filePath: string) {
     return (await import(filePath)).default
   }
 
-  async refreshCommands(commands: CommandType[]) {
+  public async refreshCommands(commands: CommandType[]) {
     const guildCommands = await this.guilds.get(this.guildID).getCommands()
     const guildCommandNames = guildCommands.map((command) => command.name)
     const commandNames = commands.map((command) => command.name)
 
     guildCommandNames.forEach(async (commandName) => {
+      console.log(
+        'Command: ' + commandName,
+        !commandNames.includes(commandName)
+      )
       if (!commandNames.includes(commandName)) {
         await this.guilds.get(this.guildID).deleteCommand(commandName)
       }
     })
-
     await this.guilds
       .find((g) => g.id === this.guildID)
       .bulkEditCommands(commands)
   }
 
-  async registerModules() {
+  public async registerModules() {
     // Register commands
     const slashCommands: CommandType[] = []
 
@@ -57,20 +79,6 @@ export class MoonHandlerClient extends Client {
       }
       try {
         this.commands.set(command.name, command)
-        report.step(2, 3, green('🥳 Commands registered!'))
-        const transformedType = this.transformType(command.type)
-        const array = [
-          {
-            name: command.name,
-            type: transformedType,
-            permissions: command.defaultPermission,
-          },
-        ]
-        const transformed = array.reduce((acc, {name, ...x}) => {
-          acc[name] = x
-          return acc
-        }, {})
-        console.table(transformed)
       } catch (e) {
         console.error(red(`😢 Something went wrong: ${e}`))
         exit(1)
@@ -80,6 +88,7 @@ export class MoonHandlerClient extends Client {
 
     this.on('ready', () => {
       this.refreshCommands(slashCommands)
+      report.step(2, 3, green('🥳 Commands registered!'))
     })
 
     // Register Events
@@ -105,8 +114,25 @@ export class MoonHandlerClient extends Client {
         return 'MESSAGE'
     }
   }
-  async startBot() {
+
+  async setDbEngine(engine: string) {
+    if (!engine) {
+      ;('A DBEngine was not provided, so the bot will start without database.')
+    }
+
+    switch (engine) {
+      case dbEngine.surreal:
+        initSurrealDB(this.surrealUser, this.surrealPass)
+        break
+      case dbEngine.mongo:
+        initMongoDB(this.mongoURI)
+        break
+    }
+  }
+
+  public async startBot() {
     await this.registerModules()
+    await this.setDbEngine(this.dbEngine)
     await this.connect()
   }
 }

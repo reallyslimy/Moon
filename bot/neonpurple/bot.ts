@@ -1,27 +1,21 @@
 import Eris from 'eris'
 import 'dotenv/config'
-import {MoonHandlerClient} from 'moonhandler'
-import {initDB} from './utils/db/surreal/dbconn'
-import {initMongoDB} from './utils/db/mongodb/dbconn'
-import {dbEngine} from './utils/enums/dbEngine.enum'
+import {MoonClient} from 'moonhandler'
 
 export const otype = Eris.Constants.ApplicationCommandOptionTypes
 
-export const bot = new MoonHandlerClient(
+export const bot = new MoonClient(
   process.env.DISCORD_TOKEN,
   {
     intents: ['all'],
+    maxShards: 'auto',
   },
   process.env.TEST_GUILD
 )
 
-switch (process.env.DB_ENGINE) {
-  case dbEngine.surreal:
-    initDB()
-    break
-  case dbEngine.mongo:
-    initMongoDB()
-    break
-}
+// Define DB data
+bot.dbEngine = process.env.DB_ENGINE
+bot.surrealUser = process.env.SURREAL_DB_USER
+bot.surrealPass = process.env.SURREAL_DB_PASS
 
 bot.startBot()

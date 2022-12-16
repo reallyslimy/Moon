@@ -1,5 +1,4 @@
 import {ClientEvents} from 'eris'
-import {MoonHandlerClient} from './client'
 
 export class MoonEvent<Key extends keyof ClientEvents> {
   constructor(
