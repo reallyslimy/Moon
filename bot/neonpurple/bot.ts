@@ -15,7 +15,6 @@ export const bot = new MoonClient(
 
 // Define DB data
 bot.dbEngine = process.env.DB_ENGINE
-bot.surrealUser = process.env.SURREAL_DB_USER
-bot.surrealPass = process.env.SURREAL_DB_PASS
+bot.mongoURI = process.env.MONGO_URI
 
 bot.startBot()

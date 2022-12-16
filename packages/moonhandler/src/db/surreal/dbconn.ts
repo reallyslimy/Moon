@@ -1,7 +1,8 @@
 import Surreal from 'surrealdb.js'
 import {exit} from 'process'
+import {createBotTable} from './CRUD/createTables'
 
-const db = new Surreal('http://127.0.0.1:8000/rpc')
+export const db = new Surreal('http://127.0.0.1:8000/rpc')
 
 export async function initSurrealDB(dbUser: string, dbPass: string) {
   try {
@@ -23,6 +24,8 @@ export async function initSurrealDB(dbUser: string, dbPass: string) {
     await db
       .use('moon', 'neon')
       .catch((err) => console.error('Could not select a database', err))
+
+    await createBotTable(db)
   } catch (e) {
     console.error('Problem found', e)
     exit(1)
