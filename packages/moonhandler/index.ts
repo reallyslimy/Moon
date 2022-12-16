@@ -1,6 +1,6 @@
-import {MoonClient} from './structures/client'
-import {CommandType} from './types/command'
-import {MoonEvent} from './structures/event'
-import {MoonCommand} from './structures/command'
-import {dbEngine} from './utils/enums/dbEngine.enums'
+import {MoonClient} from './src/structures/client'
+import {CommandType} from './src/types/command'
+import {MoonEvent} from './src/structures/event'
+import {MoonCommand} from './src/structures/command'
+import {dbEngine} from './src/utils/enums/dbEngine.enums'
 export {MoonClient, CommandType, MoonEvent, MoonCommand, dbEngine}
