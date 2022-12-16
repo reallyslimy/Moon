@@ -2,7 +2,7 @@
   "name": "moonhandler",
   "version": "0.1.0",
   "description": "Easy to use command handler for Eris",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "tsc": "tsc -w --outDir dist --rootDir src --skipLibCheck",
     "compile": "tsc && node index.js",
